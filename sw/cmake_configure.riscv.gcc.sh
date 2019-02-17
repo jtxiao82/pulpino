@@ -10,7 +10,7 @@ RANLIB=`which riscv32-unknown-elf-ranlib`
 
 VSIM=`which vsim`
 
-TARGET_C_FLAGS="-O3 -m32 -g"
+TARGET_C_FLAGS="-O2 -g"
 #TARGET_C_FLAGS="-O2 -g -falign-functions=16  -funroll-all-loops"
 
 # if you want to have compressed instructions, set this to 1
@@ -28,11 +28,11 @@ ZERO_RV32M=0
 ZERO_RV32E=0
 
 # riscy with PULPextensions, it is assumed you use the ETH GCC Compiler
-GCC_MARCH="IMXpulpv2"
+GCC_MARCH="rv32i"
 #compile arduino lib
-ARDUINO_LIB=1
+ARDUINO_LIB=0
 
-PULP_GIT_DIRECTORY=../../
+PULP_GIT_DIRECTORY=../..
 SIM_DIRECTORY="$PULP_GIT_DIRECTORY/vsim"
 #insert here your post-layout netlist if you are using IMPERIO
 PL_NETLIST=""
