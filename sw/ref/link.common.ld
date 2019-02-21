@@ -3,7 +3,16 @@ __DYNAMIC  =  0;
 
 MEMORY
 {
-    instrram    : ORIGIN = 0x00000000, LENGTH = 0x8000
+    /**********************************************************************/
+    /*                                                                    */
+    /* original    => instrram    : ORIGIN = 0x000000000, LENGTH = 0x8000 */
+    /* gcd         => instrram    : ORIGIN = 0x0000114e4, LENGTH = 0x8000 */
+    /* adaline     => instrram    : ORIGIN = 0x000010680, LENGTH = 0x8000 */
+    /* qsort_small => instrram    : ORIGIN = 0x000011688, LENGTH = 0x8000 */
+    /*                                                                    */
+    /**********************************************************************/
+    instrram    : ORIGIN = 0x000114e4, LENGTH = 0x8000
+    /*instrram    : ORIGIN = 0x00000000, LENGTH = 0x8000*/
     dataram     : ORIGIN = 0x00100000, LENGTH = 0x6000
     stack       : ORIGIN = 0x00106000, LENGTH = 0x2000
 }
@@ -18,6 +27,8 @@ _stack_start   = ORIGIN(stack) + LENGTH(stack);
 
 SECTIONS
 {
+
+
     .vectors :
     {
         . = ALIGN(4);
