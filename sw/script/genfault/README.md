@@ -35,14 +35,15 @@
       - Not use now!
 
 ## Fault simulation steps on PULPino and dump the necessary trace for ISS fault simulator
-//////////////////////////////////////////////////////////
-// Operation Platform: PULPino and Modelsim             //
-//                                                      //
-// First Time to Compile RISCV BIN and Turn on ModelSim //
-// Check the Correctness of Program Simulation          //
-// Can not get the sych Program Trace Due to Different  //
-// RISCV Bin Ld(Different Start Address                 //
-//////////////////////////////////////////////////////////
+
+```
+Operation Platform: PULPino and Modelsim.   
+
+First Time to Compile RISCV BIN and Turn on ModelSim. 
+Check the Correctness of Program Simulation.         
+Can not get the sych Program Trace Due to Different  
+RISCV Bin Ld(Different Start Address)                 
+```
 
 - Suppose the necessary file is copied to DIR/pulpino/sw/build
 - Modify the program linker script **DIR/pulpino/sw/ref/link.common.ld** with original 
@@ -73,13 +74,13 @@
    - On the Modelsim GUI
       - $ source ../../recompile.tcl # for check the correctness of program execution
 
-//////////////////////////////////////////////////////////
-// Operation Platform: PULPino and Modelsim             //
-//                                                      //
-// Fault-Free and Fault Simulation Once Respectively    //
-// To Generate the program trace for ISS Timing Model   //
-// generation                                           //
-//////////////////////////////////////////////////////////
+```
+Operation Platform: PULPino and Modelsim             
+                                                      
+Fault-Free and Fault Simulation Once Respectively    
+To Generate the program trace for ISS Timing Model   
+generation                                           
+```
 
 - Suppose the Modelsim is opened!! Now, enter the second fault-free simulation for sych up the simulation result with ISS
 
@@ -107,11 +108,11 @@
    - On the Modelsim GUI
       - $ python ../../genFaultList.py # for check the correctness of program execution
   
-///////////////////////////////////////////////////////////
-// Operation Platform: ISS Fault Simulator (On ws32)     // 
-//                                                       //
-// Generate the RISCV from ws32                          //
-///////////////////////////////////////////////////////////
+```
+Operation Platform: ISS Fault Simulator (On ws32)     
+                                                       
+Generate the RISCV ELF from ws32                          
+```
 
 - Suppose the ISS fault simulation is installed
 - Suppose the RISCV bin linker script on ISS is the following
@@ -125,12 +126,12 @@
    - $ cd DIR/FaultInjectionPlatform/src/RISCV_ISS/riscv/tests/gcd
    - $ sh build_pulpino_bin.sh
 
-///////////////////////////////////////////////////////////
-// Operation Platform: ISS Fault Simulator (On local PC) // 
-//                                                       //
-// Go Back to ISS Fault Simulator for Generation of      //
-// Fault List                                            //
-///////////////////////////////////////////////////////////
+```
+Operation Platform: ISS Fault Simulator (On local PC) 
+                                                       
+Go Back to ISS Fault Simulator for Generation of      
+Fault List                                            
+```
 
 - Copy the program-ASM ans program-ELF from server to local pc (gcd for example)
    - $ scp m105061614@140.114.24.31:/home/m105/m105061614/NTHU/Research/Git/FaultInjectionPlatform/src/RISCV_ISS/riscv/tests/gcd/gcd.elf DIR/FaultInjectionPlatform/src/RISCV_ISS/riscv/tests/gcd
@@ -160,11 +161,11 @@
          - Randomly select the fault location
          - Copy the fault list and corresponding fault simulation output to ws32 for PULPino fault simulation and compare the ISS fault simulation correctness
 
-///////////////////////////////////////////////////////////
-// Operation Platform: PULPino and Modelsim (ws32)       //
-//                                                       //
-// RTL Fault Simulation and Compare Result from ISS FSIM //
-///////////////////////////////////////////////////////////
+```
+Operation Platform: PULPino and Modelsim (ws32)       
+                                                      
+RTL Fault Simulation and Compare Result from ISS FSIM 
+```
 - Change directory to pulpino/sw/build
    - $ cd DIR/pulpino/sw/build
 - Modify the **DIR/pulpino/sw/build/genFaultList.py**
