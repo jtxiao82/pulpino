@@ -193,6 +193,9 @@ endmacro()
 ################################################################################
 
 add_subdirectory(helloworld)
+add_subdirectory(gcd)
+add_subdirectory(qsort)
+add_subdirectory(adaline)
 
 if(${ARDUINO_LIB})
   add_subdirectory(Arduino_tests)
