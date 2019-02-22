@@ -53,6 +53,8 @@ def find_server():
     print tcolors.ERROR + "ERROR: could not find remote server." + tcolors.ENDC
     sys.exit(1)
 
+
+
 if len(sys.argv) > 1:
     server = sys.argv[1]
     group  = "pulp-open"
@@ -61,8 +63,12 @@ if len(sys.argv) > 1:
     else:
         remote = "%s:%s" % (server, group)
 
-if not vars().has_key('server'):
-    [server, group, remote] = find_server()
+server = "https://github.com" 
+group  = "pulp-open"
+remote = "https://github.com/pulp-platform"
+
+#if not vars().has_key('server'):
+#    [server, group, remote] = find_server()
 
 print "Using remote git server %s, remote is %s" % (server, remote)
 
